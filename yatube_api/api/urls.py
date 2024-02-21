@@ -7,6 +7,11 @@ v1_router = SimpleRouter()
 v1_router.register(r'posts', views.PostViewSet)
 v1_router.register(r'groups', views.GroupViewSet)
 v1_router.register(
+    r'follow',
+    views.FollowViewSet,
+    basename='follow'
+)
+v1_router.register(
     r'^posts/(?P<post_id>\d+)/comments',
     views.CommentViewSet,
     basename='comments'
