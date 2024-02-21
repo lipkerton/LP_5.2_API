@@ -12,7 +12,7 @@ git clone https://github.com/lipkerton/api_final_yatube.git
 ```
 
 ```
-cd kittygram
+cd api_final_yatube
 ```
 
 Cоздать и активировать виртуальное окружение:
@@ -22,7 +22,7 @@ python3 -m venv env
 ```
 
 ```
-source env/bin/activate
+source venv/bin/activate
 ```
 
 Установить зависимости из файла requirements.txt:
@@ -46,3 +46,20 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
+
+### Примеры использования
+
+Получить отдельный пост:
+
+```
+http://127.0.0.1:8000/api/v1/posts/{id}/
+```
+
+Получить список комментариев к посту:
+
+```
+http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+```
+
+### Автор проекта:
+Петр Петухов, студент курса "Python-разработчик" на Яндекс.Практикум

@@ -1,6 +1,5 @@
-from rest_framework import serializers
+from rest_framework import serializers, validators
 from rest_framework.relations import SlugRelatedField
-from rest_framework import validators
 
 from posts.models import Comment, Post, Group, Follow, User
 
@@ -45,7 +44,9 @@ class FollowSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         if self.context['request'].user != attrs.get('following'):
             return attrs
-        raise serializers.ValidationError()
+        raise serializers.ValidationError(
+            "Пользователь не может подписаться на самого себя!"
+        )
 
     class Meta:
         model = Follow
